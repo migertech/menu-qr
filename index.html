@@ -1,184 +1,234 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú | Restaurante</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Menú | Restaurante</title>
 
-    <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: #111;
-            color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            scroll-behavior: smooth;
-        }
+<style>
+    * {
+        box-sizing: border-box;
+    }
 
-        .container {
-            max-width: 500px;
-            margin: auto;
-            padding: 20px;
-        }
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: #111;
+        color: #f5f5f5;
+        scroll-behavior: smooth;
+    }
 
-        h1 {
-            text-align: center;
-            letter-spacing: 2px;
-            margin-bottom: 5px;
-        }
+    /* HEADER FIJO */
+    header {
+        position: sticky;
+        top: 0;
+        background: #111;
+        padding: 15px;
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+    }
 
-        .subtitulo {
-            text-align: center;
-            font-size: 14px;
-            color: #aaa;
-            margin-bottom: 20px;
-        }
+    h1 {
+        text-align: center;
+        letter-spacing: 2px;
+        margin: 5px 0;
+    }
 
-        /* BOTONES */
-        .botones {
-            display: flex;
-            justify-content: space-between;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
+    .botones {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+    }
 
-        .botones a {
-            flex: 1;
-            text-align: center;
-            padding: 10px;
-            border: 1px solid #c9a24d;
-            border-radius: 25px;
-            text-decoration: none;
-            color: #c9a24d;
-            font-size: 14px;
-            transition: all 0.3s;
-        }
+    .botones a {
+        flex: 1;
+        text-align: center;
+        padding: 10px;
+        border: 1px solid #c9a24d;
+        border-radius: 20px;
+        text-decoration: none;
+        color: #c9a24d;
+        font-size: 14px;
+        transition: 0.3s;
+    }
 
-        .botones a:hover {
-            background: #c9a24d;
-            color: #111;
-        }
+    .botones a:hover {
+        background: #c9a24d;
+        color: #111;
+    }
 
-        /* CATEGORÍAS */
-        .categoria {
-            margin-bottom: 40px;
-        }
+    .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+    }
 
-        .categoria h2 {
-            border-bottom: 2px solid #c9a24d;
-            padding-bottom: 5px;
-            color: #c9a24d;
-            margin-bottom: 15px;
-        }
+    /* CATEGORÍAS */
+    .categoria {
+        margin-bottom: 50px;
+    }
 
-        .item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
+    .categoria h2 {
+        color: #c9a24d;
+        border-bottom: 2px solid #c9a24d;
+        padding-bottom: 5px;
+        margin-bottom: 20px;
+    }
 
-        .precio {
-            color: #c9a24d;
-            font-weight: bold;
-        }
+    /* TARJETAS */
+    .card {
+        background: #1a1a1a;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        animation: fadeUp 0.6s ease;
+    }
 
-        footer {
-            text-align: center;
-            font-size: 12px;
-            color: #777;
-            margin-top: 40px;
+    .card img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+    }
+
+    .card-body {
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .precio {
+        color: #c9a24d;
+        font-weight: bold;
+    }
+
+    /* ANIMACIÓN */
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
         }
-    </style>
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* WHATSAPP */
+    .whatsapp {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #25D366;
+        color: white;
+        padding: 14px 16px;
+        border-radius: 50%;
+        font-size: 22px;
+        text-decoration: none;
+        box-shadow: 0 0 10px #000;
+        z-index: 1000;
+    }
+
+    footer {
+        text-align: center;
+        font-size: 12px;
+        color: #777;
+        margin: 40px 0;
+    }
+</style>
 </head>
+
 <body>
 
-<div class="container">
-
+<header>
     <h1>EL BUEN SABOR</h1>
-    <div class="subtitulo">Menú Digital</div>
-
-    <!-- BOTONES -->
     <div class="botones">
         <a href="#comida"> Comida</a>
         <a href="#bebidas"> Bebidas</a>
-        <a href="#postres">Postres</a>
+        <a href="#postres"> Postres</a>
     </div>
+</header>
 
-    <!-- COMIDA -->
-    <div class="categoria" id="comida">
-        <h2>Comida</h2>
+<div class="container">
 
-        <div class="item">
-            <span>Hamburguesa Clásica</span>
-            <span class="precio">$85</span>
-        </div>
+<!-- COMIDA -->
+<section id="comida" class="categoria">
+<h2> Comida</h2>
 
-        <div class="item">
-            <span>Hamburguesa Doble Queso</span>
-            <span class="precio">$110</span>
-        </div>
-
-        <div class="item">
-            <span>Papas a la francesa</span>
-            <span class="precio">$45</span>
-        </div>
-
-        <div class="item">
-            <span>Papas gajo</span>
-            <span class="precio">$55</span>
-        </div>
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1550547660-d9450f859349">
+    <div class="card-body">
+        <span>Hamburguesa Clásica</span>
+        <span class="precio">$85</span>
     </div>
+</div>
 
-    <!-- BEBIDAS -->
-    <div class="categoria" id="bebidas">
-        <h2>🥤 Bebidas</h2>
-
-        <div class="item">
-            <span>Refresco</span>
-            <span class="precio">$30</span>
-        </div>
-
-        <div class="item">
-            <span>Agua natural</span>
-            <span class="precio">$20</span>
-        </div>
-
-        <div class="item">
-            <span>Agua fresca</span>
-            <span class="precio">$25</span>
-        </div>
-
-        <div class="item">
-            <span>Cerveza</span>
-            <span class="precio">$45</span>
-        </div>
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd">
+    <div class="card-body">
+        <span>Hamburguesa Doble Queso</span>
+        <span class="precio">$110</span>
     </div>
+</div>
 
-    <!-- POSTRES -->
-    <div class="categoria" id="postres">
-        <h2> Postres</h2>
-
-        <div class="item">
-            <span>Pastel de chocolate</span>
-            <span class="precio">$50</span>
-        </div>
-
-        <div class="item">
-            <span>Pay de limón</span>
-            <span class="precio">$45</span>
-        </div>
-
-        <div class="item">
-            <span>Helado</span>
-            <span class="precio">$35</span>
-        </div>
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add">
+    <div class="card-body">
+        <span>Papas a la francesa</span>
+        <span class="precio">$45</span>
     </div>
+</div>
+</section>
 
-    <footer>
-        Gracias por su visita ✨
-    </footer>
+<!-- BEBIDAS -->
+<section id="bebidas" class="categoria">
+<h2> Bebidas</h2>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a">
+    <div class="card-body">
+        <span>Refresco</span>
+        <span class="precio">$30</span>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1544145945-f90425340c7e">
+    <div class="card-body">
+        <span>Agua fresca</span>
+        <span class="precio">$25</span>
+    </div>
+</div>
+</section>
+
+<!-- POSTRES -->
+<section id="postres" class="categoria">
+<h2>🍰 Postres</h2>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587">
+    <div class="card-body">
+        <span>Pastel de chocolate</span>
+        <span class="precio">$50</span>
+    </div>
+</div>
+
+<div class="card">
+    <img src="https://images.unsplash.com/photo-1505253216365-06f6f8d3e87f">
+    <div class="card-body">
+        <span>Pay de limón</span>
+        <span class="precio">$45</span>
+    </div>
+</div>
+</section>
+
+<footer>
+Menú digital • Gracias por su visita 
+</footer>
 
 </div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/5210000000000" target="_blank">💬</a>
 
 </body>
 </html>
